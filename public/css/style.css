@@ -3,9 +3,10 @@
 :root
 {
     /* Colors */
+    --body-text-color: #1d1d1b;
+    --body-background-color: #fff5eb;
     --headings-text-color: #fc4d5c;
     --slogan-text-color: #fff5eb;
-    --body-text-color: #1d1d1b;
     --overlay-background-color: rgb(29, 29, 27, .4);
     
     /* Font Sizes */
@@ -19,6 +20,11 @@
 
     /* Radii */
     --base-border-radius: 10px;
+
+    /* Shadows */
+    --text-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+    --box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+
 }
 
 *
@@ -29,6 +35,12 @@
     border: none;
     outline: none;
     user-select: none;
+}
+
+body
+{
+    background-color: var(--body-background-color);
+    overflow-x: hidden;
 }
 
 @font-face
