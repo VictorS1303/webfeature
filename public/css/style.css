@@ -83,4 +83,5 @@ li
 a
 {
     text-decoration: none;
+    font-family: var(--body-text);
 }
