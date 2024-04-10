@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo: 100, 200, 300, 400, 500, 600, 700, 800, 900');
+
+:root
+{
+    /* Colors */
+    --headings-text-color: #fc4d5c;
+    --slogan-text-color: #fff5eb;
+    --body-text-color: #1d1d1b;
+    --overlay-background-color: rgb(29, 29, 27, .4);
+    
+    /* Font Sizes */
+    --primary-headings-font-size: 60px;
+    --sub-headings-font-size: 25px;
+    --body-text-font-size: 35px;
+
+    /* Font Families */
+    --body-text: 'Archivo', sans-serif;
+
+
+    /* Radii */
+    --base-border-radius: 10px;
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    user-select: none;
+}
+
+@font-face
+{
+    src: url('./fonts/ObviouslyDemo-Bold.woff2');
+    font-family: headingFont;
+}
+
+/* Headings */
+h1
+{
+    font-family: 'headingFont', sans-serif;
+    font-size: var(--primary-headings-font-size);
+    color: var(--headings-text-color);
+}
+
+/* Paragraphs */
+p
+{
+    font-family: var(--body-text);
+    font-size: var(--body-text-font-size);
+}
+
+/* Images & Videos */
+img, video
+{
+    display: blocK;
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* List Items */
+li
+{
+    list-style: none;
+}
+
+/* Links */
+a
+{
+    text-decoration: none;
+}
