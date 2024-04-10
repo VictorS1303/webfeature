@@ -1,5 +1,6 @@
 ---
 import "../../public/css/style.css";
+import Navigation from '../components/Navigation.astro';
 const {title} = Astro.props;
 ---
 
@@ -12,6 +13,6 @@ const {title} = Astro.props;
     <script src="https://kit.fontawesome.com/e05f21b32e.js" crossorigin="anonymous"></script>
     <title>{title}</title>
 </head>
-<body>
+    <Navigation/>
 </body>
 </html>
