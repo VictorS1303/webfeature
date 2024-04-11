@@ -63,7 +63,7 @@
         border-left: 3px solid #fc4d5c;
         width: 200px;
         background-color: #fff5eb;
-        z-index: 2000;
+        z-index: 5000;
         transition: right .4s ease-in;
     }
 
@@ -121,7 +121,7 @@
 
         nav.main-nav
         {
-            position: sticky;
+            position: fixed;
             top: 0;
             left: 0;
             height: 70px;
@@ -129,14 +129,11 @@
             border-left: none;
             border-bottom: 3px solid #fc4d5c;
         }
-        nav.main-nav
-        {
-            position: relative; /* Ensure proper positioning context */
-        }
+     
         nav.main-nav h1.logo
         {
             position: absolute;
-            left: 20px; /* Adjust the left position according to your preference */
+            left: 20px; 
             top: 35%;
             transform: translateY(-50%);
             font-size: 25px;
