@@ -7,9 +7,10 @@ const {className, id} = Astro.props
 </section>
 
 <style>
-    section {
+    section:not(.hero) {
         position: relative;
         height: 100vh;
         width: 100vw;
+        padding-top: 80px;
     }
 </style>
