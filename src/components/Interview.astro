@@ -3,6 +3,7 @@ import Section from "./Section.astro";
 import Overlay from "./Overlay.astro";
 import PlayButton from "./PlayButton.astro";
 import Video from "./Video.astro";
+import VideoControls from "./VideoControls.astro";
 ---
 
 <Section className="interview" id="interview">
@@ -15,13 +16,16 @@ import Video from "./Video.astro";
     </header>
 
     <div class="container video-container">
-        <div class="container video-overlay-container" style="display: none;">
+        <div class="container video-overlay-container">
             <Overlay />
             <div class="container play-button-container">
                 <PlayButton />
             </div>
         </div>
-        <Video src="../../public/videos/placeholder_video.mp4" id="video" />
+        <div class="wrapper video-wrapper">
+            <Video src="../../public/videos/placeholder_video.mp4" id="video"/>
+            <VideoControls />
+        </div>
     </div>
 </Section>
 
@@ -60,7 +64,11 @@ import Video from "./Video.astro";
     {
         height: 100%;
     }
-
+    .wrapper.video-wrapper
+    {
+        position: relative;
+        overflow: hidden;
+    }
    
 
 </style>
