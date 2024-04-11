@@ -98,6 +98,7 @@
     const volumeControl = document.querySelector('#volume_control') as HTMLInputElement
     const currentVolumeNumber = document.querySelector('#current_volume')
     const fullScreenButton = document.querySelector('#fullscreen_btn') as HTMLButtonElement
+    const playButton = document.querySelector('#play_btn') as HTMLButtonElement
 
     /* EVENT LISTENERS */ 
     video.addEventListener('mouseover', revealVideoControlsContainer)
@@ -122,6 +123,12 @@
     /* Reveal Video Controls Container */
     function revealVideoControlsContainer()
     {
+        
+        if(playButton.style.display === 'block')
+        {
+            video.style.pointerEvents = 'none'
+        }
+        
         videoControlsContainer.classList.add('revealed')
     }
     
