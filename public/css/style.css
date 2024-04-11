@@ -7,8 +7,11 @@
     --body-text-color: #1d1d1b;
     --body-background-color: #fff5eb;
     --headings-text-color: #fc4d5c;
+    --play-button-background-color: #fff5eb;
+    --play-button-text-color: #fc4d5c;
     --slogan-text-color: #fff5eb;
     --overlay-background-color: rgb(29, 29, 27, .8);
+    --border-color: #fc4d5c; 
     
     /* Font Sizes */
     --primary-headings-font-size: 60px;
