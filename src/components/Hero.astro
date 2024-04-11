@@ -1,9 +1,40 @@
 ---
 import Section from './Section.astro'
 import Overlay from './Overlay.astro'
+
+const {title, slogan} = Astro.props
 ---
 
 <Section className="hero" id="hero">
     <Overlay/>
     <img src="../../public/images/hero/hero_placeholder_bg_image.webp" alt="">
+
+    <div class="container hero-container">
+        <h1>GirlTalk</h1>
+        <p class="slogan">Mødestedet for piger — af piger</p>
+    </div>
 </Section>
+
+<style>
+    .container.hero-container
+    {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .container.hero-container h1
+    {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .slogan
+    {
+        font-family: 'Archivo Narrow', sans-serif;
+        font-style: italic;
+        color: var(--slogan-text-color);
+    }
+</style>
