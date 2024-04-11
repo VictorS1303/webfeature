@@ -141,7 +141,7 @@
     /* Adjust Volume */
     function adjustVolume()
     {
-        video.volume = volumeControl.value
+        video.volume = volumeControl.valueAsNumber
         updateCurrentVolumeNumber()
         
         if (volumeControl.valueAsNumber > 0)
@@ -159,7 +159,7 @@
     /* Update Current Volume Number */ 
     function updateCurrentVolumeNumber()
     {
-        currentVolumeNumber.textContent = Math.trunc(volumeControl.valueAsNumber * 100)
+        currentVolumeNumber.textContent = String(Math.trunc(volumeControl.valueAsNumber * 100))
     }
 
     /* Toggle Video Play State */
