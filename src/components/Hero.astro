@@ -1,8 +1,6 @@
 ---
 import Section from './Section.astro'
 import Overlay from './Overlay.astro'
-
-const {title, slogan} = Astro.props
 ---
 
 <Section className="hero" id="hero">
@@ -16,6 +14,12 @@ const {title, slogan} = Astro.props
 </Section>
 
 <style>
+    img
+    {
+        height: 100vh;
+        width: 100vw;
+    }
+
     .container.hero-container
     {
         position: absolute;
