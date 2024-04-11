@@ -1,6 +1,7 @@
 ---
 import Section from "./Section.astro";
 import Overlay from "./Overlay.astro";
+import PlayButton from "./PlayButton.astro";
 ---
 
 <Section className="interview" id="interview">
@@ -13,13 +14,13 @@ import Overlay from "./Overlay.astro";
     </header>
 
     <div class="container video-container">
-        <div class="container video-overlay-container">
+        <div class="container video-overlay-container" style="display: none;">
             <Overlay />
             <div class="container play-button-container">
-                Hey
+                <PlayButton />
             </div>
         </div>
-       <video src="../../public/videos/placeholder_video.mp4"></video>
+       <video src="../../public/videos/placeholder_video.mp4" id="video" autoplay muted></video>
     </div>
 </Section>
 
@@ -59,12 +60,6 @@ import Overlay from "./Overlay.astro";
         height: 100%;
     }
 
-    .container.play-button-container
-    {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
+   
 
 </style>

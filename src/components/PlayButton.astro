@@ -1,0 +1,92 @@
+---
+
+---
+
+
+<div class="container play-button-container">
+    <button class="btn play-btn" id="play_btn">
+        <i class="fas fa-play"></i>
+    </button>
+
+    <h3>Afspil video</h3>
+</div>
+
+<style>
+    .container.play-button-container
+    {
+       position: absolute;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       text-align: center;
+    }
+
+    .play-btn
+    {
+        background-color: var(--play-button-background-color);
+        height: 80px;
+        width: 80px;
+        border-radius: calc(var(--base-border-radius) * 5);
+        border: 2px solid var(--border-color);
+        font-size: 28px;
+        margin-bottom: 10px;
+        color: var(--play-button-text-color);
+        cursor: pointer;
+        transition: color .2s ease-in, background-color .2s ease-in;
+    }
+
+    .play-btn:hover
+    {
+        color: #fff5eb;
+        background-color: #fc4d5c;
+        transition: color .2s ease-in, background-color .2s ease-in;
+    }
+
+    .play-btn:hover i
+    {
+        text-shadow: var(--text-shadow);
+        transition: text-shadow .2s ease-in;
+    }
+
+    .play-btn:hover:active
+    {
+        transform: scale(.98);
+        transition: none;
+    }
+
+    .play-btn:hover:active i
+    {
+        text-shadow: none;
+        transition: none;
+    }
+
+    h3
+    {
+        font-family: 'Archivo', sans-serif;
+        letter-spacing: 1px;
+        color: var(--slogan-text-color);
+    }
+</style>
+
+<script>
+
+    const playButton = document.getElementById('play_btn') as HTMLButtonElement;
+    const video = document.getElementById('video') as HTMLButtonElement;
+
+
+    playButton.addEventListener('click', removeOverlay);
+
+    function removeOverlay()
+    {
+        const videoContainer = document.querySelector('.container.video-overlay-container') as HTMLElement;
+        videoContainer.style.display = 'none'
+
+        playVideo(video)
+    }
+
+    // Play Video    
+    function playVideo(video: any)
+    {
+        video.play()
+    }
+</script>
