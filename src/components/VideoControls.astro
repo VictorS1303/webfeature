@@ -1,0 +1,206 @@
+<div class="container video-controls-container">
+    <div class="play-pause-audio-container">
+        <i class="fas fa-play control play-pause-btn" id="play_pause_btn"></i>
+
+        <div>
+            <span>0</span>
+            <input type="range" min="0" max="1" step=".01" class="control volume-control" id="volume_control">
+            <span class="volume current-volume" id="current_volume">0</span>
+        </div>
+    </div>
+    <div>
+        <i class="fa-solid fa-expand control fullscreen-btn" id="fullscreen_btn"></i>
+    </div>
+</div>
+
+<style>
+    .video-controls-container
+    {
+        font-family: 'Archivo', sans-serif;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        bottom: -55px;
+        width: 100%;
+        background-color: rgba(0, 0, 0, .8);
+        height: 55px;
+        padding: 0 30px;
+        color: var(--video-controls-text-color);
+        transition: bottom .2s ease-in;
+        pointer-events: none;
+    }
+
+    .video-controls-container.revealed
+    {
+        bottom: 0;
+        transition: bottom .2s ease-in;
+    }
+
+    .video-controls-container > *
+    {
+        pointer-events: all;
+    }
+
+    .video-controls-container > div:nth-child(1)
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        height: 100%;
+    }
+
+    .video-controls-container > div div
+    {
+        display: flex;
+        gap: 10px;
+        font-size: 20px;
+    }
+
+    .video-controls-container > div div input[type="range"]::-moz-range-track
+    {
+        background-color: var(--video-audio-control-background-color);
+        height: 5px;
+        border-radius: calc(var(--base-border-radius) * 5);
+    }
+
+    .video-controls-container > div div input[type="range"]::-moz-range-thumb
+    {
+        background-color: var(--video-audio-control-background-color);
+        border: 2px solid var(--border-color);
+        border-radius: calc(var(--base-border-radius) * 5);
+        cursor: pointer;
+    }
+
+    @-moz-document url-prefix()
+    {
+        /* Target the range input */
+        input[type="range"]
+        {
+            /* Set background to transparent */
+            background: transparent;
+        }
+    }
+
+    .video-controls-container i
+    {
+        font-size: 23px;
+        cursor: pointer;
+    }
+</style>
+
+<script>
+    const video = document.getElementById('video') as HTMLVideoElement;
+    const videoControlsContainer = document.querySelector('.video-controls-container') as HTMLElement
+    const controls = document.querySelectorAll('.control')
+    const playPauseButton = document.querySelector('#play_pause_btn') as HTMLButtonElement
+    const volumeControl = document.querySelector('#volume_control') as HTMLInputElement
+    const currentVolumeNumber = document.querySelector('#current_volume')
+    const fullScreenButton = document.querySelector('#fullscreen_btn') as HTMLButtonElement
+    const playButton = document.querySelector('#play_btn') as HTMLButtonElement
+
+    /* EVENT LISTENERS */ 
+    video.addEventListener('mouseover', revealVideoControlsContainer)
+    video.addEventListener('mouseleave', hideVideoControlsContainer)
+    video.addEventListener('click', toggleVideoPlayState)
+    video.addEventListener('dblclick', toggleFullScreenMode)
+    controls.forEach((control) => control.addEventListener('mouseover', revealVideoControlsContainer))
+    volumeControl.addEventListener('input', adjustVolume)
+    playPauseButton.addEventListener('click', toggleVideoPlayState)
+    fullScreenButton.addEventListener('click', enableFullScreenMode)
+
+    window.addEventListener('load', setDefaultVolume)
+
+    /* FUNCTIONS */ 
+    function setDefaultVolume()
+    {
+        video.volume = 0.8
+        volumeControl.valueAsNumber = video.volume
+        updateCurrentVolumeNumber()
+    }
+
+    /* Reveal Video Controls Container */
+    function revealVideoControlsContainer()
+    {
+        videoControlsContainer.classList.add('revealed')
+    }
+    
+    /* Hide Video Controls Container*/ 
+    function hideVideoControlsContainer()
+    {
+        videoControlsContainer.classList.remove('revealed')
+    }
+
+    /* Adjust Volume */
+    function adjustVolume()
+    {
+        video.volume = volumeControl.value
+        updateCurrentVolumeNumber()
+        
+        if (volumeControl.valueAsNumber > 0)
+        {
+            video.play()
+            updateVideoPlayPauseIcon()
+        }
+        else
+        {
+            video.pause()
+            updateVideoPlayPauseIcon()
+        }
+    }
+
+    /* Update Current Volume Number */ 
+    function updateCurrentVolumeNumber()
+    {
+        currentVolumeNumber.textContent = Math.trunc(volumeControl.valueAsNumber * 100)
+    }
+
+    /* Toggle Video Play State */
+    function toggleVideoPlayState()
+    {
+        video.paused
+            ? video.play()
+            : video.pause()
+
+        
+        updateVideoPlayPauseIcon()
+    }
+
+    function updateVideoPlayPauseIcon()
+    {
+        if(video.paused)
+        {
+            playPauseButton.classList.add('fa-play')
+            playPauseButton.classList.remove('fa-pause')
+        }
+        else if(!video.paused)
+        {
+            playPauseButton.classList.remove('fa-play')
+            playPauseButton.classList.add('fa-pause')
+        }
+    }
+
+    /* Enable Fullscreen Mode */ 
+    function enableFullScreenMode()
+    {
+        video.requestFullscreen()
+        video.play()
+    }
+
+
+    /* Toggle Full Screen Mode */ 
+    function toggleFullScreenMode()
+    {
+        video.requestFullscreen()
+
+        if (document.fullscreenElement)
+        {
+            revealVideoControlsContainer()
+            // Exit fullscreen mode
+            document.exitFullscreen()
+        }
+
+        video.play()
+    }
+</script>

@@ -1,0 +1,74 @@
+---
+import Section from "./Section.astro";
+import Overlay from "./Overlay.astro";
+import PlayButton from "./PlayButton.astro";
+import Video from "./Video.astro";
+import VideoControls from "./VideoControls.astro";
+---
+
+<Section className="interview" id="interview">
+    <header>
+        <h1>LIVET SOM FRIVILLIG</h1>
+        <p>
+            Hvordan er livet som frivillig i GirlTalk?
+            Få et dybere indblik i videoen herunder og se, om det skulle være noget for dig.
+        </p>
+    </header>
+
+    <div class="container video-container">
+        <div class="container video-overlay-container">
+            <!-- <Overlay />
+            <div class="container play-button-container">
+                <PlayButton />
+            </div> -->
+        </div>
+        <div class="wrapper video-wrapper">
+            <Video src="../../public/videos/placeholder_video.mp4" id="video"/>
+            <VideoControls />
+        </div>
+    </div>
+</Section>
+
+<style>
+    header
+    {
+       position: relative;
+       left: 50%;
+       transform: translateX(-50%);
+       text-align: center;
+    }
+
+    header h1
+    {
+        display: inline-block;
+        border-bottom: 2px solid var(--headings-text-color);
+    }
+
+    header p
+    {
+        width: 660px;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 25px;
+    }
+
+    .container.video-container
+    {
+        position: relative;
+        margin-top: 80px;
+        height: 400px;
+    }
+
+    .container.video-container video
+    {
+        height: 100%;
+    }
+    .wrapper.video-wrapper
+    {
+        position: relative;
+        overflow: hidden;
+    }
+   
+
+</style>
