@@ -105,10 +105,13 @@
     video.addEventListener('mouseleave', hideVideoControlsContainer)
     video.addEventListener('click', toggleVideoPlayState)
     video.addEventListener('dblclick', toggleFullScreenMode)
-    controls.forEach((control) => control.addEventListener('mouseover', revealVideoControlsContainer))
     volumeControl.addEventListener('input', adjustVolume)
     playPauseButton.addEventListener('click', toggleVideoPlayState)
     fullScreenButton.addEventListener('click', enableFullScreenMode)
+    controls.forEach((control) => control.addEventListener('mouseover', revealVideoControlsContainer))
+    window.addEventListener('keyup', (e) => playPauseVideo(e))
+    window.addEventListener('keyup', (e) => toggleFullScreenModeWithKeyboard(e))
+
 
     window.addEventListener('load', setDefaultVolume)
 
@@ -187,6 +190,15 @@
         }
     }
 
+    /* Play Pause Video */
+    function playPauseVideo(e: any)
+    {
+        if(e.keyCode === 32)
+        {
+            toggleVideoPlayState()
+        }
+    }
+
     /* Enable Fullscreen Mode */ 
     function enableFullScreenMode()
     {
@@ -208,5 +220,15 @@
         }
 
         video.play()
+    }
+
+    /* Toggle Full Screen Mode Keyboard */
+    function toggleFullScreenModeWithKeyboard(e: any)
+    {
+        if(e.keyCode === 70)
+        {
+            toggleFullScreenMode()
+            updateVideoPlayPauseIcon()
+        }
     }
 </script>
