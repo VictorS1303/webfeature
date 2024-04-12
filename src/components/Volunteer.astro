@@ -1,7 +1,26 @@
 ---
 import Section from './Section.astro';
+import Offers from './Offers.astro';
 ---
 
 <Section className="volunteer" id="volunteer">
-    <h1>Hey</h1>
+    <div class="container volunteer-container">
+        <h1>HVAD FÅR MAN SOM FRIVILLIG?</h1>
+    </div>
+    <Offers />
 </Section>
+
+<style>
+    .volunteer-container
+    {
+        margin-top: 600px;
+        text-align: center;
+        z-index: 3000;
+    }
+
+    .volunteer-container h1
+    {
+        display: inline-block;
+        border-bottom: 2px solid var(--headings-text-color);
+    }
+</style>
