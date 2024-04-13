@@ -103,7 +103,6 @@
     volumeControl.addEventListener('input', adjustVolume)
     playPauseButton.addEventListener('click', toggleVideoPlayState)
     fullScreenButton.addEventListener('click', enableFullScreenMode)
-    controls.forEach((control) => control.addEventListener('mouseover', revealVideoControlsContainer))
     window.addEventListener('keyup', (e) => playPauseVideo(e))
     window.addEventListener('keyup', (e) => toggleFullScreenModeWithKeyboard(e))
 
