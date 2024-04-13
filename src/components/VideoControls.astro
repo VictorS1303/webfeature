@@ -14,6 +14,7 @@
 </div>
 
 <style>
+
     .video-controls-container
     {
         font-family: 'Archivo', sans-serif;
@@ -21,7 +22,7 @@
         justify-content: space-between;
         align-items: center;
         position: absolute;
-        bottom: -55px;
+        bottom: -120%;
         width: 100%;
         background-color: rgba(0, 0, 0, .8);
         height: 55px;
@@ -29,12 +30,7 @@
         color: var(--video-controls-text-color);
         transition: bottom .2s ease-in;
         pointer-events: none;
-    }
-
-    .video-controls-container.revealed
-    {
-        bottom: 0;
-        transition: bottom .2s ease-in;
+        z-index: 5000;
     }
 
     .video-controls-container > *
@@ -100,15 +96,13 @@
     const fullScreenButton = document.querySelector('#fullscreen_btn') as HTMLButtonElement
     const playButton = document.querySelector('#play_btn') as HTMLButtonElement
 
-    /* EVENT LISTENERS */ 
-    video.addEventListener('mouseover', revealVideoControlsContainer)
+    /* EVENT LISTENERS */
     video.addEventListener('mouseleave', hideVideoControlsContainer)
     video.addEventListener('click', toggleVideoPlayState)
     video.addEventListener('dblclick', toggleFullScreenMode)
     volumeControl.addEventListener('input', adjustVolume)
     playPauseButton.addEventListener('click', toggleVideoPlayState)
     fullScreenButton.addEventListener('click', enableFullScreenMode)
-    controls.forEach((control) => control.addEventListener('mouseover', revealVideoControlsContainer))
     window.addEventListener('keyup', (e) => playPauseVideo(e))
     window.addEventListener('keyup', (e) => toggleFullScreenModeWithKeyboard(e))
 
@@ -122,19 +116,6 @@
         volumeControl.valueAsNumber = video.volume
         updateCurrentVolumeNumber()
     }
-
-    /* Reveal Video Controls Container */
-    function revealVideoControlsContainer()
-    {
-        
-        if(playButton.style.display === 'block')
-        {
-            video.style.pointerEvents = 'none'
-        }
-        
-        videoControlsContainer.classList.add('revealed')
-    }
-    
     /* Hide Video Controls Container*/ 
     function hideVideoControlsContainer()
     {
