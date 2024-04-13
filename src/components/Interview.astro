@@ -1,7 +1,8 @@
 ---
 import Section from "./Section.astro";
 import Overlay from "./Overlay.astro";
-import PlayButton from "./PlayButton.astro";
+// import PlayButton from "./PlayButton.astro";
+import VideoControls from "./VideoControls.astro";
 import Video from "./Video.astro";
 ---
 
@@ -18,48 +19,60 @@ import Video from "./Video.astro";
         <div class="container video-overlay-container" style="display: none;">
             <Overlay />
             <div class="container play-button-container">
-                <PlayButton />
+                <!-- <PlayButton /> -->
             </div>
         </div>
         <Video src="../../public/videos/placeholder_video.mp4" id="video" />
+        <VideoControls />
     </div>
 </Section>
 
 <style>
-    header
-    {
-       position: relative;
-       left: 50%;
-       transform: translateX(-50%);
-       text-align: center;
-    }
+        header
+        {
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
 
-    header h1
-    {
-        display: inline-block;
-        border-bottom: 2px solid var(--headings-text-color);
-    }
+        header h1
+        {
+            display: inline-block;
+            border-bottom: 2px solid var(--headings-text-color);
+            font-size: 28px;
+            white-space: nowrap;
+        }
+        header p
+        {
+            font-size: 25px;
+            margin: 25px 0;
+        }
 
-    header p
+    @media screen and (min-width: 768px)
     {
-        width: 660px;
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%);
-        margin-top: 25px;
-    }
+        
+        header p
+        {
+            width: 660px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
 
-    .container.video-container
-    {
-        position: relative;
-        margin-top: 80px;
-        height: 400px;
-    }
+        .container.video-container
+        {
+            position: relative;
+            margin-top: 80px;
+            height: 400px;
+        }
 
-    .container.video-container video
-    {
-        height: 100%;
+        .container.video-container video
+        {
+            height: 100%;
+        }
     }
+    
 
    
 
