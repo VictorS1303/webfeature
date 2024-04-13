@@ -14,7 +14,9 @@
     --border-color: #fc4d5c;
     --video-controls-text-color: #fff5eb;
     --video-audio-control-background-color: #fff5eb;
-    
+    --scroll-to-top-text-background-color: #fc4d5c;
+    --scroll-to-top-button-background-color: #fff5eb;
+
     /* Font Sizes */
     --primary-headings-font-size: 60px;
     --sub-headings-font-size: 25px;

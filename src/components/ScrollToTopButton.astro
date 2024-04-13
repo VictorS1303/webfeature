@@ -1,0 +1,65 @@
+<a href="#top" class="button scroll-to-top-button" id="scroll_to_top_button">
+    <i class="fas fa-arrow-up"></i>
+</a>
+
+<style>
+    .scroll-to-top-button
+    {
+        position: fixed;
+        right: -200px;
+        bottom: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        width: 50px;
+        border-radius: calc(var(--base-border-radius) * 5);
+        font-size: 25px;
+        background-color: var(--scroll-to-top-background-color);
+        box-shadow: var(--box-shadow);
+        border: 2px solid var(--border-color);
+        color: var(--headings-text-color);
+        background-color: #fff;
+        cursor: pointer;
+        transition: color .2s ease-in, background .2s ease-in, right .2s ease-in;
+    }
+
+    .scroll-to-top-button.active
+    {
+        right: 20px;
+        transition: right .3s ease;
+    }
+
+    
+    .scroll-to-top-button:hover
+    {
+        color: #fff;
+        background-color: var(--headings-text-color);
+        transition: color .2s ease-in, background .2s ease-in;
+    }
+
+    .scroll-to-top-button:active
+    {
+        transform: scale(.98);
+        box-shadow: none;
+        transition: none;
+    }
+</style>
+
+<script>
+    const scrollToTopButton = document.querySelector('#scroll_to_top_button')
+
+    window.addEventListener('scroll', revealScrollToTopButton)
+
+    function revealScrollToTopButton(e: any)
+    {
+        if(window.scrollY > 600)
+        {
+            scrollToTopButton.classList.add('active')
+        }
+        else
+        {
+            scrollToTopButton.classList.remove('active')
+        }
+    }
+</script>
