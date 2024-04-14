@@ -15,14 +15,48 @@ import OfferCard from './OfferCard.astro';
     .volunteer-container
     {
         padding-top: 0;
-        margin-top: -120px;
         text-align: center;
-        /* z-index: 3000; */
+        margin-top: -320px;
     }
 
     .volunteer-container h1
     {
         display: inline-block;
         border-bottom: 2px solid var(--headings-text-color);
+    }
+
+    @media screen and (min-width: 600px)
+    {
+        .volunteer-container
+        {
+            margin-top: -180px;
+        }
+
+    }
+
+    @media screen and (min-width: 791px)
+    {
+        .volunteer-container
+        {
+            margin-top: 20px;
+        }
+
+    }
+
+    @media screen and (min-width: 900px)
+    {
+        .volunteer-container
+        {
+            margin-top: 250px;
+        }
+
+    }
+
+    @media screen and (min-width: 1400px)
+    {
+        .volunteer-container
+        {
+            margin-top: 400px;
+        }
     }
 </style>
