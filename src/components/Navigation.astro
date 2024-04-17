@@ -170,7 +170,6 @@
     menuLinks.forEach((menuLink) => menuLink.addEventListener('click', closeMobileMenuOnLinkClick))
     menuLinks.forEach((menuLink) => menuLink.addEventListener('click', (e) => updateActiveLink(e)))
     logo.addEventListener('click', highlightFirstLink)
-    window.addEventListener('scroll', updateActiveLinkOnScroll)
     window.addEventListener('load', () => menuLinks[0].classList.add('active'))
 
     // Toggle Mobile Menu
