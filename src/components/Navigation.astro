@@ -241,6 +241,7 @@
     // Add 'active' class to the link corresponding to the current section
     menuLinks.forEach((menuLink) =>
     {
+        let currentSection = 'hero'
         if (menuLink.getAttribute('href').slice(1) === currentSection)
         {
             menuLink.classList.add('active')
