@@ -161,6 +161,7 @@
 
 <script>
     const mainNav = document.getElementById('main_nav')
+    const logo = document.querySelector('.logo')
     const menuLinks = document.querySelectorAll('a')
     const mobileMenuToggleButton = document.getElementById('mobile_menu_toggle_btn')
     const sections = document.querySelectorAll('section')
@@ -168,7 +169,9 @@
     mobileMenuToggleButton.addEventListener('click', toggleMobileMenu)
     menuLinks.forEach((menuLink) => menuLink.addEventListener('click', closeMobileMenuOnLinkClick))
     menuLinks.forEach((menuLink) => menuLink.addEventListener('click', (e) => updateActiveLink(e)))
+    logo.addEventListener('click', highlightFirstLink)
     window.addEventListener('scroll', updateActiveLinkOnScroll)
+    window.addEventListener('load', () => menuLinks[0].classList.add('active'))
 
     // Toggle Mobile Menu
     function toggleMobileMenu()
@@ -234,7 +237,7 @@
             currentSection = section.id
         }
     })
-
+}
     // Add 'active' class to the link corresponding to the current section
     menuLinks.forEach((menuLink) =>
     {
@@ -247,6 +250,12 @@
             menuLink.classList.remove('active')
         }
     })
-}
+
+    function highlightFirstLink()
+    {
+        menuLinks[0].classList.add('active')
+    }
+
+
 
 </script>
