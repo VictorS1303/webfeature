@@ -1,0 +1,52 @@
+---
+const {callToActionButtonText, url, target} = Astro.props
+console.log(url)
+---
+
+<button class="cta-btn" id="cta_btn">
+    <a href={`https://${url}`} target="_{target}">
+        {callToActionButtonText}
+    </a>
+</button>
+
+<style>
+    .cta-btn
+    {
+        font-family: 'Archivo', sans-serif;
+        display: inline-block;
+        width: fit-content;
+        padding: 15px;
+        font-size: 20px;
+        white-space: nowrap;
+        border-radius: calc(var(--base-border-radius) * 5);
+        box-shadow: var(--box-shadow);
+        border: 2px solid var(--border-color);
+        background-color: var(--cta-button-background-color);
+        cursor: pointer;
+        transition: background .2s ease-in, color .2s ease-in;
+    }
+
+    .cta-btn a
+    {
+        color: #fc4d5c;
+        transition: color .2s ease-in;
+    }
+
+    .cta-btn:hover
+    {
+        background-color: var(--cta-button-text-color);
+        transition: background .2s ease-in;
+    }
+
+    .cta-btn:hover a
+    {
+        color: var(--cta-button-background-color);
+    }
+
+    .cta-btn:active
+    {
+        transform: scale(.98);
+        box-shadow: none;
+        transition: none;
+    }
+</style>
