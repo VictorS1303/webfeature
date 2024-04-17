@@ -204,7 +204,6 @@
         {
             closeMobileMenu()
         }
-      
     }
 
     // Helping function to the closeMobileMenuOnLinkClick function
@@ -226,31 +225,8 @@
         e.target.classList.add('active')
     }
 
-    function updateActiveLinkOnScroll() {
-    let currentSection = '';
 
-    // Find the section that is currently scrolled to
-    sections.forEach((section) =>
-    {
-        if (window.scrollY >= (section.offsetTop - 200))
-        {
-            currentSection = section.id
-        }
-    })
-}
-    // Add 'active' class to the link corresponding to the current section
-    menuLinks.forEach((menuLink) =>
-    {
-        let currentSection = 'hero'
-        if (menuLink.getAttribute('href').slice(1) === currentSection)
-        {
-            menuLink.classList.add('active')
-        }
-        else
-        {
-            menuLink.classList.remove('active')
-        }
-    })
+
 
     function highlightFirstLink()
     {
