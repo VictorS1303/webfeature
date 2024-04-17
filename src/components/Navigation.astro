@@ -168,11 +168,14 @@
     const mainNav = document.getElementById('main_nav')
     const menuLinks = document.querySelectorAll('a')
     const mobileMenuToggleButton = document.getElementById('mobile_menu_toggle_btn')
+    const sections = document.querySelectorAll('section')
 
     mobileMenuToggleButton.addEventListener('click', toggleMobileMenu)
     menuLinks.forEach((menuLink) => menuLink.addEventListener('click', closeMobileMenuOnLinkClick))
     menuLinks.forEach((menuLink) => menuLink.addEventListener('click', (e) => updateActiveLink(e)))
+    window.addEventListener('scroll', updateActiveLinkOnScroll)
 
+    // Toggle Mobile Menu
     function toggleMobileMenu()
     {
         mainNav.classList.toggle('active')
@@ -223,5 +226,28 @@
         })
 
         e.target.classList.add('active')
+    }
+
+    // Update active link on scroll
+    function updateActiveLinkOnScroll()
+    {
+        let currentSection = 'home'
+        
+        sections.forEach((section) =>
+        {
+            if(window.scrollY >= (section.offsetTop - 200))
+            {
+                currentSection = section.id
+            }
+        })
+
+        menuLinks.forEach((menuLink) =>
+        {
+            if(menuLink.href.includes(currentSection))
+            {
+                document.querySelector('.active').classList.remove('active')
+                menuLink.classList.add('active')
+            }
+        })
     }
 </script>
