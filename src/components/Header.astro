@@ -5,3 +5,19 @@ const {className, id} = Astro.props;
 <header class={className} id={id}>
    <slot/>
 </header>
+
+<style>
+    header
+    {
+        display: flex;
+        justify-content: center;
+    }
+    
+    header h1
+    {
+        text-align: center;
+        border-bottom: 2px solid var(--border-color);
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+</style>
