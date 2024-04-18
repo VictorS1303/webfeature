@@ -1,0 +1,38 @@
+---
+import Section from './Section.astro';
+import CallToActionButton from './CallToActionButton.astro';
+---
+
+<Section className="volunteer" id="volunteer">
+    <header>
+        <h1>Bliv en del af holdet</h1>
+    </header>
+
+    <p>
+        Hvis ovenstående har givet dig blod på tanden til at gøre en forskel for unge piger, er det nu, du skal gribe muligheden.
+        Klik på knappen nedenfor og se, hvilke muligheder du har for at gøre præcis den forskel, du ønsker.
+    </p>
+    <CallToActionButton callToActionButtonText="Bliv Frivillig" url="www.girltalk.dk/om/bliv-frivillig/" target="blank"/>
+</Section>
+
+<style>
+    p
+    {
+        font-size: 25px;
+        text-align: center;
+    }
+
+    header
+    {
+        display: flex;
+        justify-content: center;
+    }
+    
+    header h1
+    {
+        text-align: center;
+        border-bottom: 2px solid var(--border-color);
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+</style>
