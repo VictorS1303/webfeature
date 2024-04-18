@@ -1,6 +1,6 @@
 ---
 const {callToActionButtonText, url, target} = Astro.props
-console.log(url)
+
 ---
 
 <button class="cta-btn" id="cta_btn">
@@ -12,6 +12,9 @@ console.log(url)
 <style>
     .cta-btn
     {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
         font-family: 'Archivo', sans-serif;
         display: inline-block;
         width: fit-content;
