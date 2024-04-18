@@ -73,27 +73,34 @@ html
 /* Headings */
 h1
 {
-    display: inline-block;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     font-family: 'headingFont', sans-serif;
     font-size: var(--primary-mobile-headings-font-size);
-    text-align: center;
-    width: fit-content;
-    border-bottom: 2px solid var(--border-color);
     color: var(--headings-text-color);
-    white-space: wrap;
+    white-space: nowrap;
+}
+
+h1:not(.logo, .hero h1)
+{
+    border-bottom: 2px solid var(--border-color);
 }
 
 /* Paragraphs */
 p
 {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
     font-family: var(--body-text);
     font-size: var(--body-text-font-size);
     white-space: wrap;
     text-align: center;
     padding: 20px;
+    margin: 20px 0;
+    width: 500px;
 }
 
 /* Images & Videos */

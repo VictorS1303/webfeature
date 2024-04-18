@@ -7,9 +7,13 @@ const {className, id} = Astro.props;
 </header>
 
 <style>
-  header
-  {
-    white-space: nowrap;
-    font-size: var(--primary-mobile-headings-font-size);
-  }
+    header
+    {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        font-size: var(--primary-mobile-headings-font-size);
+        width: 100%;
+    }
 </style>
