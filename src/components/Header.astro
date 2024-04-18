@@ -1,7 +1,7 @@
 ---
-const { headerText, className, id } = Astro.props;
+const {className, id} = Astro.props;
 ---
 
 <header class={className} id={id}>
-    {headerText}
+   <slot/>
 </header>
