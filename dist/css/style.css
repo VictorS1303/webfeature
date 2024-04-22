@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo: 100, 200, 300, 400, 500, 600, 700, 800, 900');
+@import url('https://fonts.googleapis.com/css?family=Archivo+Narrow: 100, 200, 300, 400, 500, 600, 700, 800, 900');
+
+:root
+{
+    /* Colors */
+    --body-text-color: #1d1d1b;
+    --body-background-color: #fff5eb;
+    --headings-text-color: #fc4d5c;
+    --play-button-background-color: #fff5eb;
+    --play-button-text-color: #fc4d5c;
+    --slogan-text-color: #fff5eb;
+    --overlay-background-color: rgb(29, 29, 27, .8);
+    --border-color: #fc4d5c;
+    --video-controls-text-color: #fff5eb;
+    --video-audio-control-background-color: #fff5eb;
+    --scroll-to-top-text-background-color: #fc4d5c;
+    --scroll-to-top-button-background-color: #fff5eb;
+    --cta-button-text-color: #fc4d5c;
+    --cta-button-background-color: #fff5eb;
+
+    --footer-text-color: #fc4d5c;
+    --footer-background-color: #f7c7d9;
+
+    /* Font Sizes */
+    --primary-headings-font-size: 60px;
+    --primary-mobile-headings-font-size: 40px;
+    --sub-headings-font-size: 25px;
+    --body-text-font-size: 35px;
+
+    /* Font Families */
+    --body-text: 'Archivo', sans-serif;
+
+
+    /* Radii */
+    --base-border-radius: 10px;
+
+    /* Shadows */
+    --text-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+    --box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+
+}
+
+body
+{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--body-background-color);
+    overflow-x: hidden;
+}
+
+html
+{
+    scroll-behavior: smooth;
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    user-select: none;
+}
+
+@font-face
+{
+    src: url('./fonts/ObviouslyDemo-Bold.woff2');
+    font-family: headingFont;
+}
+
+/* Headings */
+h1
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'headingFont', sans-serif;
+    font-size: var(--primary-mobile-headings-font-size);
+    color: var(--headings-text-color);
+    white-space: nowrap;
+}
+
+h1:not(.logo, .hero h1)
+{
+    border-bottom: 2px solid var(--border-color);
+}
+
+/* Paragraphs */
+p
+{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--body-text);
+    font-size: var(--body-text-font-size);
+    white-space: wrap;
+    text-align: center;
+    padding: 20px;
+    margin: 20px 0;
+    width: 500px;
+}
+
+/* Images & Videos */
+img, video
+{
+    display: blocK;
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* List Items */
+li
+{
+    list-style: none;
+}
+
+/* Links */
+a
+{
+    text-decoration: none;
+    font-family: var(--body-text);
+}
+
+@media screen and (min-width: 768px)
+{
+    h1
+    {
+        font-size: var(--primary-headings-font-size);
+    }
+}
